@@ -2,10 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Room
 
-# rooms = [{'id':"1",'name':"lets explore !"},
-#          {'id':"2",'name':"lets code !"},
-#          {'id':"3",'name':"lets sing !"}]
-
 
 def home(request):
     rooms = Room.objects.all()
