@@ -24,11 +24,13 @@
     </div>
     <div>
         <div>
-            {{rooms_count}} rooms available
+            <h5>{{rooms_count}} rooms available</h5>
         </div>
+        <br/>
         <div>
            <a href="{% url 'create-room' %}">create room</a>
         </div>
+        <br/>
         {% for room in rooms %}
         <div>
             <div>{{room.host}}</div>
