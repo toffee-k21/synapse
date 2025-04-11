@@ -67,6 +67,7 @@ def home(request):
 def room(request,pk): 
     room = Room.objects.get(id=pk)
     messages = room.messages.all().order_by('-created')
+    participants = room.participants.all()
 
     if request.method == 'POST':
         messages = Message.objects.create(
@@ -74,8 +75,9 @@ def room(request,pk):
             room = room,
             body = request.POST.get('body')
         )
+        room.participants.add(request.user)
         return redirect('room', pk=room.id)
-    return render(request,'base/room.html', {'room' : room, 'messages':messages})
+    return render(request,'base/room.html', {'room' : room, 'messages':messages, 'participants': participants})
 
 @login_required(login_url='/login')
 def createRoom(request):
@@ -105,7 +107,7 @@ def updateRoom(request, pk):
     return render(request, 'base/room-form.html', {'form': form})
 
 @login_required(login_url='/login')
-def deletRoom(request, pk):
+def deleteRoom(request, pk):
     room = Room.objects.get(id=pk)
     
     if request.user != room.host:
@@ -116,4 +118,18 @@ def deletRoom(request, pk):
         return redirect("home")
        
     return render(request, 'base/delete.html', {'obj': room})
+
+
+@login_required(login_url='/login')
+def deleteMessage(request, pk):
+    message = Message.objects.get(id=pk)
+    
+    if request.user != message.user:
+        return HttpResponse('You are not allowed to change')
+
+    if request.method == 'POST':
+        message.delete()
+        return redirect('home')
+       
+    return render(request, 'base/delete.html', {'obj': message})
 

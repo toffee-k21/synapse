@@ -1,27 +1,45 @@
-{% extends 'main.html' %}
-
+{% extends 'main.html' %} 
 {% block content %}
+<style>
+        .main-container{
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+        }
+</style>
+<div class="main-container">
+  <div>
+    <h3>{{ room.name }}</h3>
+    <h3>{{ room.description }}</h3>
+    <div class="comment-wrapper">
+      <h3>Conversation</h3>
+      {% for message in messages %}
+      <div>
+        <a href="{% url 'delete-message' message.id %}">Delete</a>
+        <small>@{{message.user}}</small>
+        <div>{{message.body}}</div>
+        <small>{{message.created|timesince}} ago</small>
+      </div>
+      {% endfor %}
+    </div>
 
-        <h3>{{ room.name }}</h3>
-        <h3>{{ room.description }}</h3>
-        <div class="comment-wrapper">
-                <h3>Conversation</h3>
-                {% for message in messages %}
-                <div>
-                <small>@{{message.user}}</small>
-                <div>{{message.body}}</div>
-                <small>{{message.created|timesince}} ago</small>
-                </div>
-                {% endfor %}
-        </div>
-
-        {% if request.user.is_authenticated %}
-        <div>
-                <form method="POST" action="">
-                        {% csrf_token %}
-                        <input type="text" name="body" placeholder="Write your message here..." />
-                </form>
-         </div>
-         {% endif %}
-
+    {% if request.user.is_authenticated %}
+    <div>
+      <form method="POST" action="">
+        {% csrf_token %}
+        <input
+          type="text"
+          name="body"
+          placeholder="Write your message here..."
+        />
+      </form>
+    </div>
+    {% endif %}
+  </div>
+  <div>
+        <h3>Participants</h3>
+        {% for p in participants %}
+        <p>@{{p.username}}</p>
+        {% endfor %}
+  </div>
+</div>
 {% endblock %}
