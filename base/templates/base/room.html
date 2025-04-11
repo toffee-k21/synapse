@@ -14,7 +14,9 @@
       <h3>Conversation</h3>
       {% for message in messages %}
       <div>
+        {% if request.user == message.user %}
         <a href="{% url 'delete-message' message.id %}">Delete</a>
+        {% endif %}
         <small>@{{message.user}}</small>
         <div>{{message.body}}</div>
         <small>{{message.created|timesince}} ago</small>
