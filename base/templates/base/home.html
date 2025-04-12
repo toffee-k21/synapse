@@ -12,15 +12,7 @@
 
 <div class="main">
     <div>
-        <h1>Browse topic</h1>
-            <div>
-            <a href="{% url 'home' %}" >All</a>
-        </div>
-        {% for topic in topics %}
-        <div>
-            <a href="{% url 'home' %}?q={{topic.name|urlencode }}" >{{topic.name}}</a>
-        </div>
-        {% endfor %}
+       {% include 'base/topics_component.html' %}
     </div>
     <div>
         <div>
@@ -31,17 +23,7 @@
            <a href="{% url 'create-room' %}">create room</a>
         </div>
         <br/>
-        {% for room in rooms %}
-        <div>
-            <div>{{room.host}}</div>
-            <div><a href="{% url 'room' room.id %}">{{room.name}}</a></div>
-            <div>{{room.topic}}</div>
-            {% if request.user == room.host %}
-            <a href="{% url 'update-room' room.id %}">update</a>
-            <a href="{% url 'delete-room' room.id %}">delete</a>
-            {% endif %}
-        </div><br/>
-        {% endfor %}
+        {% include 'base/feed_component.html' %}
     </div>
     <div>
       {% include 'base/activity_component.html' %}
