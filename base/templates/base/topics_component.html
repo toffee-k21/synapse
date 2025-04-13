@@ -1,9 +1,16 @@
- <h3>Browse topic</h3>
-            <div>
-            <a href="{% url 'home' %}" >All</a>
-        </div>
-        {% for topic in topics %}
-        <div>
-            <a href="{% url 'home' %}?q={{topic.name|urlencode }}" >{{topic.name}}</a>
-        </div>
-        {% endfor %}
+
+
+  <div class="column topics">
+    <h2>Topics</h2>
+    <ul>
+      <li><a href="{% url 'home' %}">All</a></li>
+      {% for topic in topics %}
+      <div>
+        <li><a href="{% url 'home' %}?q={{topic.name|urlencode }}"
+          >{{topic.name}}</a
+        ></li>
+      </div>
+      {% endfor %}
+    </ul>
+  </div>
+

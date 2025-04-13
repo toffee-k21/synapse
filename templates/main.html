@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Synapse</title>
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
 </head>
 <body>
     {% include 'nav.html' %}
-
-    <!-- <img src="{% static 'images/j.jpg' %}" /> -->
-
+    
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -20,8 +18,11 @@
     </ul>
     {% endif %}
     
+
     {% block content %}
      
     {% endblock %}
+        
+    
 </body>
 </html>

@@ -1,13 +1,20 @@
-<h3>Activity</h3>
-
-{% for message in room_messages %}
-<small
-  ><a href="{% url 'user-profile' message.user.id %}">@{{message.user}}</a>
-  ----- {{message.created|timesince}}</small
->
-<small>replied to : {{message.room}}</small>
-<p>{{message}}</p>
-{% if request.user == message.user %}
-<a href="{% url 'delete-message' message.id %}">Delete</a>
-<br /><br />
-{% endif %} {% endfor %}
+<div class="column recent-activity">
+  <h2>Recent Activity</h2>
+  <ul>
+    {% for message in room_messages %}
+    <li class="activity-item">
+      <p>{{message}} <strong>{{message.room}}</strong></p>
+      <span class="activity-meta"
+        >by
+        <a href="{% url 'user-profile' message.user.id %}">@{{message.user}}</a
+        >, {{message.created|timesince}} ago</span
+      >
+      {% if request.user == message.user %}
+      <button style=" margin-top: 10px;" class="delete-btn">
+        <a href="{% url 'delete-message' message.id %}">Delete</a>
+      </button>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>

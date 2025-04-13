@@ -2,31 +2,25 @@
 
 {% block content %}
 
-<style>
-    .main{
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-    }
+<div class="dashboard">
 
-</style>
-
-<div class="main">
-    <div>
        {% include 'base/topics_component.html' %}
-    </div>
+   
     <div>
         <div>
             <h5>{{rooms_count}} rooms available</h5>
         </div>
         <br/>
-        <div>
-           <a href="{% url 'create-room' %}">create room</a>
+        <div class="create-room">
+            <div style=" padding: 10px; background-color: #262626; border-radius: 5px;">
+                <a href="{% url 'create-room' %}">Create Room</a>
+            </div>
         </div>
         <br/>
         {% include 'base/feed_component.html' %}
     </div>
-    <div>
+    
       {% include 'base/activity_component.html' %}
-    </div>
+ 
 </div>
 {% endblock %}

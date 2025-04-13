@@ -1,14 +1,24 @@
-{% for room in rooms %}
-<div>
-  <div>
-    <a href="{% url 'user-profile' room.host.id %}"> {{room.host}} </a>
+<div class="column feeds">
+  <h2>Join a Conversation</h2>
+  {% for room in rooms %}
+  <div class="feed-item">
+    <h4 class="room-name">
+      <a href="{% url 'room' room.id %}">{{room.name}}</a>
+    </h4>
+    <p>Topic: #{{room.topic}}</p>
+    {% if request.user == room.host %}
+    <div class="button-group">
+      <button class="update-btn">
+        <a href="{% url 'update-room' room.id %}">Update</a>
+      </button>
+      <button class="delete-btn">
+        <a href="{% url 'delete-room' room.id %}">Delete</a>
+      </button>
+    </div>
+    {% endif %}
+     <div class="host-name">
+      <a href="{% url 'user-profile' room.host.id %}">Created by @{{room.host}} </a>
+     </div>
   </div>
-  <div><a href="{% url 'room' room.id %}">{{room.name}}</a></div>
-  <div>{{room.topic}}</div>
-  {% if request.user == room.host %}
-  <a href="{% url 'update-room' room.id %}">update</a>
-  <a href="{% url 'delete-room' room.id %}">delete</a>
-  {% endif %}
+  {% endfor %}
 </div>
-<br />
-{% endfor %}
