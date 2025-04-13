@@ -1,17 +1,21 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Synapse</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
 </head>
 <body>
     {% include 'nav.html' %}
 
+    <!-- <img src="{% static 'images/j.jpg' %}" /> -->
+
     {% if messages %}
-    <ul>
+    <ul class="messages">
         {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{message}}</li>
+        <li>{{message}}</li>
         {% endfor %}
     </ul>
     {% endif %}
