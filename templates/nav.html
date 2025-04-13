@@ -1,8 +1,10 @@
 
 
 <nav class="navbar">
-  <a class="logo" href="/">Synapse</a>
-  Hello {{request.user}}
+  <a class="logo" href="/">Synapse </a>
+  <div style="margin-right: 10px; margin-left: 25%;">
+    Hello, {{request.user}}
+  </div>
   <div class="search-container">
     <form method="GET" action="{% url 'home' %}">
       <input type="text" class="search-bar" placeholder="Search..." />

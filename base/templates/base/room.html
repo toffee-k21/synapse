@@ -1,47 +1,61 @@
-{% extends 'main.html' %} 
-{% block content %}
+{% extends 'main.html' %} {% block content %}
 <style>
-        .main-container{
-                display: grid;
-                grid-template-columns: 3fr 1fr;
-        }
+  .main-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
 </style>
+
 <div class="main-container">
-  <div>
+  <div class="message-container">
+      <header>
+    <!-- <h1>Converation</h1> -->
     <h3>{{ room.name }}</h3>
     <h3>{{ room.description }}</h3>
-    <div class="comment-wrapper">
-      <h3>Conversation</h3>
+  </header>
+    <div class="messages">
       {% for message in messages %}
-      <div>
+      <div class="message">
+        <div class="message-info">
+          <span class="username"
+            ><a href="url 'user-profile' message.user.id "
+              >@{{message.user}}</a
+            ></span
+          >
+          <span class="time">{{message.created|timesince}} ago</span>
+        </div>
+        <p class="message-body">{{message.body}}</p>
         {% if request.user == message.user %}
-        <a href="{% url 'delete-message' message.id %}">Delete</a>
+        <div style=" display: flex; justify-content: flex-end;">
+  <a style="background-color: #2b6bbf; padding: 10px;  border-radius: 5px;" href="{% url 'delete-message' message.id %}">Delete</a> 
+        </div>
         {% endif %}
-        <small><a href="url 'user-profile' message.user.id ">@{{message.user}}</a></small>
-        <div>{{message.body}}</div>
-        <small>{{message.created|timesince}} ago</small>
       </div>
       {% endfor %}
     </div>
 
-    {% if request.user.is_authenticated %}
-    <div>
-      <form method="POST" action="">
-        {% csrf_token %}
-        <input
-          type="text"
-          name="body"
-          placeholder="Write your message here..."
-        />
-      </form>
+    <div class="input-bar">
+      {% if request.user.is_authenticated %}
+      <div>
+        <form method="POST" action="">
+          {% csrf_token %}
+          <input
+            type="text"
+            name="body"
+            placeholder="Write your message here..."
+          />
+        </form>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
   </div>
+
   <div>
-        <h3>Participants</h3>
-        {% for p in participants %}
-        <p>@{{p.username}}</p>
-        {% endfor %}
+    <h3>Participants</h3>
+    {% for p in participants %}
+    <p>@{{p.username}}</p>
+    {% endfor %}
   </div>
 </div>
+
 {% endblock %}

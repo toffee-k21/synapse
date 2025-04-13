@@ -1,16 +1,9 @@
-{% extends 'main.html' %} {% block content %}
-<div>
-  <style>
-    .main-container {
-      display: grid;
-      grid-template-columns: 1fr 3fr 1fr;
-    }
-  </style>
-  <h1>{{user.username}}</h1>
-  <div class="main-container">
+{% extends 'main.html' %} 
+{% block content %}
+  <h1 style="text-align: center;">{{user.username}}</h1>
+  <div class="dashboard">
     <div>{% include 'base/topics_component.html' %}</div>
     <div>{% include 'base/feed_component.html' %}</div>
     <div>{% include 'base/activity_component.html' %}</div>
   </div>
-</div>
 {% endblock %}

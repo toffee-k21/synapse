@@ -16,10 +16,9 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 20px;
+    padding: 1rem 40px;
     /* Add padding on the x-axis */
     background-color: #1e1e1e;
-    width: 100%;
     /* Full width */
     height: 60px;
     /* Increased height */
@@ -186,4 +185,126 @@ ul {
    width: 100%;
     display: flex;
     justify-content: flex-end;
+}
+
+/* room css starts from here */
+
+.container {
+    max-width: 800px;
+    /* Limiting max width of the container */
+    margin: auto;
+    /* Centering the container */
+    padding: 20px;
+    /* Padding around the content */
+    background-color: #1e1e1e;
+    /* Dark background for the content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    /* Subtle shadow for 3D effect */
+    border-radius: 8px;
+    /* Rounded corners */
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    /* Space below header */
+}
+
+/* Messages section */
+.messages {
+    max-height: 400px;
+    /* Limit height of messages section */
+    overflow-y: auto;
+    /* Scrollbar for overflow */
+    margin-bottom: 20px;
+    /* Space below messages */
+    padding: 10px;
+    border: 1px solid #333;
+    /* Darker border around message area */
+    border-radius: 5px;
+    /* Rounded corners */
+    background-color: #2b2b2b;
+    /* Slightly different dark background for contrast */
+}
+
+/* Individual message styles */
+.message {
+    padding: 10px;
+    /* Padding inside each message */
+    border-bottom: 1px solid #444;
+    /* Darker divider between messages */
+}
+
+.message:last-child {
+    border-bottom: none;
+    /* No border for last message */
+}
+
+.message-info {
+    display: flex;
+    /* Flexbox to align username and time */
+    justify-content: space-between;
+    /* Space between elements */
+    font-size: 12px;
+    /* Smaller font for info */
+    color: #bbb;
+    /* Light grey color for meta information */
+}
+
+.message-body {
+    margin-top: 5px;
+    /* Space above message body */
+    color: #ffffff;
+    /* White text for message body */
+}
+
+/* Input bar styles */
+.input-bar {
+    display: flex;
+    /* Flexbox for input and button */
+    align-items: center;
+    /* Center vertically */
+}
+
+.message-input {
+    flex: 1;
+    /* Allow input to take up most space */
+    padding: 10px;
+    /* Padding inside input */
+    border: 1px solid #444;
+    /* Dark border */
+    border-radius: 5px;
+    /* Rounded corners */
+    margin-right: 10px;
+    /* Space between input and button */
+    background-color: #262626;
+    /* Dark background for input */
+    color: #ffffff;
+    /* White text in input */
+}
+
+.message-input::placeholder {
+    color: #888;
+    /* Placeholder color */
+}
+
+.send-button {
+    background-color: #3a8dff;
+    /* Blue background for button */
+    color: white;
+    /* White text */
+    border: none;
+    /* No border */
+    padding: 10px 15px;
+    /* Padding in button */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+}
+
+.send-button:hover {
+    background-color: #2b6bbf;
+    /* Darker blue on hover */
 }
