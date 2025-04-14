@@ -2,10 +2,13 @@
   <h2>Join a Conversation</h2>
   {% for room in rooms %}
   <div class="feed-item">
-    <h4 class="room-name">
+    <div
+      style="font-size: 1.7rem; font-weight: 700; padding-bottom: 10px"
+      class="room-name"
+    >
       <a href="{% url 'room' room.id %}">{{room.name}}</a>
-    </h4>
-    <p>Topic: #{{room.topic}}</p>
+    </div>
+    <span style="background-color: gray; padding: 5px; border-radius: 5px;">{{room.topic}}</span>
     {% if request.user == room.host %}
     <div class="button-group">
       <button class="update-btn">
@@ -16,9 +19,11 @@
       </button>
     </div>
     {% endif %}
-     <div class="host-name">
-      <a href="{% url 'user-profile' room.host.id %}">Created by @{{room.host}} </a>
-     </div>
+    <div class="host-name">
+      <a href="{% url 'user-profile' room.host.id %}"
+        >Created by @{{room.host}}
+      </a>
+    </div>
   </div>
   {% endfor %}
 </div>

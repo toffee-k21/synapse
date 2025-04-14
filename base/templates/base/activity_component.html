@@ -3,7 +3,7 @@
   <ul>
     {% for message in room_messages %}
     <li class="activity-item">
-      <p>{{message}} <strong>{{message.room}}</strong></p>
+      <p>{{message}} <small style="color: gray;">in</small> <strong>{{message.room}}</strong></p>
       <span class="activity-meta"
         >by
         <a href="{% url 'user-profile' message.user.id %}">@{{message.user}}</a

@@ -125,7 +125,8 @@ h2 {
 }
 
 .room-name {
-    font-size: 18px;
+    font-size: 1.5rem;
+
     /* Slightly larger font size for room name */
 }
 
