@@ -6,15 +6,21 @@
   }
 </style>
 
-<div class="main-container">
+<div class="main-container" style="margin: 10px">
   <div class="message-container">
-      <header>
-    <!-- <h1>Converation</h1> -->
-    <h3>{{ room.name }}</h3>
-    <h3>{{ room.description }}</h3>
-  </header>
+    <header>
+      <!-- <h1>Converation</h1> -->
+      <h3
+        style="font-size: x-large; padding-top: 10px; color: rgb(202, 202, 202)"
+      >
+        {{ room.name }}
+      </h3>
+      <div style="text-align: start; color: rgb(160, 160, 160)">
+        {{ room.description }}
+      </div>
+    </header>
     <div class="messages">
-      {% for message in messages %}
+      {% for message in room_messages %}
       <div class="message">
         <div class="message-info">
           <span class="username"
@@ -26,31 +32,35 @@
         </div>
         <p class="message-body">{{message.body}}</p>
         {% if request.user == message.user %}
-        <div style=" display: flex; justify-content: flex-end;">
-  <a style="background-color: #2b6bbf; padding: 10px;  border-radius: 5px;" href="{% url 'delete-message' message.id %}">Delete</a> 
+        <div style="display: flex; justify-content: flex-end">
+          <a
+            style="background-color: #2b6bbf; padding: 10px; border-radius: 5px"
+            href="{% url 'delete-message' message.id %}"
+            >Delete</a
+          >
         </div>
         {% endif %}
       </div>
       {% endfor %}
     </div>
 
-    <div class="input-bar">
-      {% if request.user.is_authenticated %}
-      <div>
-        <form method="POST" action="">
-          {% csrf_token %}
-          <input
-            type="text"
-            name="body"
-            placeholder="Write your message here..."
-          />
-        </form>
-      </div>
-      {% endif %}
+    {% if request.user.is_authenticated %}
+    <div class="input-bar" style="width: 100%;">
+      <form method="POST" action="" style="width: 100%;">
+        {% csrf_token %}
+        <input
+        class="message-input"
+        style="width: 50%; padding: 15px;"
+          type="text"
+          name="body"
+          placeholder="Write your message here..."
+        />
+      </form>
     </div>
+    {% endif %}
   </div>
 
-  <div>
+  <div style="margin: 10px" class="column">
     <h3>Participants</h3>
     {% for p in participants %}
     <p>@{{p.username}}</p>

@@ -67,7 +67,7 @@ def home(request):
 
 def room(request,pk):
     room = Room.objects.get(id=pk)
-    messages = room.messages.all()
+    room_messages = room.messages.all()
     participants = room.participants.all()
 
     if request.method == 'POST':
@@ -78,7 +78,7 @@ def room(request,pk):
         )
         room.participants.add(request.user)
         return redirect('room', pk=room.id)
-    return render(request,'base/room.html', {'room' : room, 'messages':messages, 'participants': participants})
+    return render(request,'base/room.html', {'room' : room, 'room_messages':room_messages, 'participants': participants})
 
 def userProfile(request, pk):
     user = User.objects.get(id=pk)

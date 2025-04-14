@@ -265,12 +265,13 @@ header {
     /* Flexbox for input and button */
     align-items: center;
     /* Center vertically */
+  
 }
 
 .message-input {
     flex: 1;
     /* Allow input to take up most space */
-    padding: 10px;
+    /* padding: 20px; */
     /* Padding inside input */
     border: 1px solid #444;
     /* Dark border */
@@ -282,6 +283,7 @@ header {
     /* Dark background for input */
     color: #ffffff;
     /* White text in input */
+   
 }
 
 .message-input::placeholder {
