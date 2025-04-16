@@ -71,7 +71,7 @@ def room(request,pk):
     participants = room.participants.all()
 
     if request.method == 'POST':
-        messages = Message.objects.create(
+        room_messages = Message.objects.create(
             user = request.user,
             room = room,
             body = request.POST.get('body')

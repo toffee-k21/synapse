@@ -35,7 +35,7 @@ a {
 
 .search-container {
     flex: 1;
-    margin: 0 20px;
+    /* margin: 0 20px; */
     /* Spacing around the search bar */
 }
 
@@ -310,4 +310,76 @@ header {
 .send-button:hover {
     background-color: #2b6bbf;
     /* Darker blue on hover */
+}
+
+/* Form styles */
+
+.form-post {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    /* width: 100%; */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #262626;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #888;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #3a8dff;
+    outline: none;
+}
+
+input[type="submit"],
+input[type="button"],
+button[type="submit"] {
+    background-color: #3a8dff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button[type="submit"]:hover {
+    background-color: #2b6bbf;
+}
+
+.form-container {
+    display: flex;
+    /* width: 70%; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 20px; */
 }
