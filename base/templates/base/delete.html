@@ -1,15 +1,12 @@
-{% extends 'main.html' %}
+{% extends 'main.html' %} {% block content %}
 
-{% block content %}
+<form method="POST" action="" style="padding: 20px;">
+  {% csrf_token %}
+  <p>Are you sure to delete the message : <span style="background-color: rgb(93, 93, 93); padding: 2px; border-radius: 3px;">{{obj}}</span> ?</p>
+  <a href="{{request.META.HTTP_REFERER}}" style="color: #2b6bbf; margin: 15px"
+    >Back</a
+  >
 
-        <form method="POST" action="">
-             {% csrf_token %}
-            <p>
-                are you sure to delete {{obj}} ?
-            </p>
-            <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
-
-        <input type="submit" value="'confirm">
-        </form>>
-
-{% endblock %}
+  <input style="background-color: rgb(189, 72, 72);" type="submit" value="Confirm" />
+</form>
+ {% endblock %}
