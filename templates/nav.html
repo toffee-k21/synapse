@@ -2,9 +2,6 @@
 
 <nav class="navbar">
   <a class="logo" href="/">Synapse </a>
-  <div style="margin-right: 10px; margin-left: 25%;">
-    Hello, {{request.user}}
-  </div>
   <div class="search-container">
     <form style="padding: 10px; margin: 20px;" method="GET" action="{% url 'home' %}">
       <input class="search-bar" placeholder="Search..." />
@@ -16,5 +13,10 @@
     {% else %}
     <a href="{% url 'login' %}">Login</a>
     {% endif %}
+  </div>
+   <div style="margin-right: 10px; margin-left: 25%;">
+    <a href="{% url 'update-user' %}">
+      Hello, {{request.user}}
+    </a>
   </div>
 </nav>

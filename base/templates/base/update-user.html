@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+  <div class="form-wrapper">
+    <h2 style="margin: 30px;">Update Your Profile</h2>
+    <div class="form-container">
+      <form class="form-post" method="POST" action="">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-group">
+          <label for="room-name">{{field.label}}</label>
+         {{field}}
+        </div>
+        {% endfor %}
+
+        <input type="submit" value="Update" />
+      </form>
+    </div>
+  </div>
+  <!-- <script>console.log({{form}})</script> -->
+  
+  {% endblock %}
+  

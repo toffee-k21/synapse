@@ -1,6 +1,9 @@
 {% extends 'main.html' %} 
 {% block content %}
   <h1 style="text-align: center;">{{user.username}}</h1>
+{% if request.user.id == user.id %}
+  <div><a href="{% url 'update-user' %}">Edit profile</a></div>
+{% endif %}
   <div class="dashboard">
     <div>{% include 'base/topics_component.html' %}</div>
     <div>{% include 'base/feed_component.html' %}</div>
