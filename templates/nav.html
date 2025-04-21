@@ -8,7 +8,8 @@
   <div style="margin-right: 10px; margin-left: 25%">
     {% if request.user.is_authenticated %}
     <a href="{% url 'user-profile' request.user.id %}">
-      <div class="profile-pic-container">
+      <div class="profile-pic-container" style="    width: 70px;
+    height: 70px;">
         <img src="{{request.user.avatar.url}}" alt="Profile Picture" />
       </div>
     </a>

@@ -6,7 +6,7 @@
       <p>{{message}} <small style="color: gray;">in</small> <strong>{{message.room}}</strong></p>
       <span class="activity-meta"
         >by
-        <a href="{% url 'user-profile' message.user.id %}">@{{message.user}}</a
+        <a href="{% url 'user-profile' message.user.id %}">@{{message.user.username}}</a
         >, {{message.created|timesince}} ago</span
       >
       {% if request.user == message.user %}

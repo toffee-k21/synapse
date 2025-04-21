@@ -1,11 +1,16 @@
 {% extends 'main.html' %} 
 {% block content %}
 <div class="profile-header">
-  <h1>{{user.username}}</h1>
+  <div class="profile-pic-container" style="width: 150px;
+    height: 150px;"><img src={{user.avatar.url}} /></div>
+  <div class="username-profile">{{user.username}}</div>
 {% if request.user.id == user.id %}
-  <div>
-    <a href="{% url 'update-user' %}">Edit profile</a>
-  </div>
+<div>
+  <p>{{user.bio}}</p>  
+</div>
+<div>
+  <a href="{% url 'update-user' %}">Edit profile</a>
+</div>
     {% if request.user.is_authenticated %}
     <a style=" margin: 20px; padding: 5px; background-color: rgb(185, 104, 104); border-radius: 5px;" href="{% url 'logout' %}">Logout</a>
     {% else %}

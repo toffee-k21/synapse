@@ -17,15 +17,15 @@ def loginPage(request):
         return redirect('home')
 
     if(request.method == 'POST'):
-        username = request.POST.get('username').lower()
+        email = request.POST.get('email').lower()
         password = request.POST.get('password')
 
         try:
-            user =  User.objects.get(username=username)
+            user =  User.objects.get(email=email)
         except:
             messages.error(request, "username not found")
 
-        user = authenticate(request, username=username, password=password) 
+        user = authenticate(request, email=email, password=password) 
 
         if user is not None:
             login(request,user)   
@@ -47,6 +47,7 @@ def registerUser(request):
             user.username = user.username.lower()
             user.save()
             login(request,user)
+            return redirect('/')
         else:
             messages.error(request,'An error has occured')
     return render(request,'base/login_register.html', {'form': form})

@@ -3,10 +3,10 @@
   <div class="column topics">
     <h2>Topics</h2>
     <ul>
-      <li  style="margin-bottom: 10px;"><a href="{% url 'home' %}">All</a></li>
+      <li style="background-color:#888888;  padding: 5px; border-radius: 5px; margin-bottom: 10px; display: inline-block;"><a href="{% url 'home' %}">All</a></li>
       {% for topic in topics %}
       <div>
-        <li style="margin-bottom: 10px;"><a href="{% url 'home' %}?q={{topic.name|urlencode }}"
+        <li style="background-color:#888888;  padding: 5px; border-radius: 5px; margin-bottom: 10px; display: inline-block;"><a href="{% url 'home' %}?q={{topic.name|urlencode }}"
           >{{topic.name}}</a
         ></li>
       </div>

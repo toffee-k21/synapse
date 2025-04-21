@@ -390,11 +390,10 @@ button[type="submit"]:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
 }
 
 .profile-pic-container {
-    width: 70px;
-    height: 70px;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -405,4 +404,10 @@ button[type="submit"]:hover {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.username-profile{
+    margin-top: 10px;
+    font-size: xx-large;
+    font-weight: 700;
 }
