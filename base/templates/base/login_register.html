@@ -5,16 +5,16 @@
     <form class="form-post" method="POST" action="">
       {% csrf_token %}
 
-      <label>username :</label>
+      <label>Email :</label>
       <input type="text" name="username" placeholder="Enter username" />
 
-      <label>password :</label>
+      <label>Password :</label>
       <input type="text" name="password" placeholder="Enter password" />
       <div style="margin-bottom: 10px">
         <input type="submit" value="login" />
       </div>
       <div>
-        <span>Havent signup yet ?</span>
+        <span>Haven't signup yet ?</span>
         <a class="button" style="color: #3a8dff" href="{% url 'register' %}"
           >Sign up</a
         >

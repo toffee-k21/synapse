@@ -1,20 +1,19 @@
-
-
 <nav class="navbar">
   <a class="logo" href="/">Synapse </a>
   <div class="search-container">
-    <form style="padding: 10px;" method="GET" action="{% url 'home' %}">
+    <form style="padding: 10px" method="GET" action="{% url 'home' %}">
       <input class="search-bar" placeholder="Search..." />
     </form>
   </div>
-   <div style="margin-right: 10px; margin-left: 25%;">
-      {% if request.user.is_authenticated %}
+  <div style="margin-right: 10px; margin-left: 25%">
+    {% if request.user.is_authenticated %}
     <a href="{% url 'user-profile' request.user.id %}">
-      Hello, {{request.user}}
+      <div class="profile-pic-container">
+        <img src="{{request.user.avatar.url}}" alt="Profile Picture" />
+      </div>
     </a>
     {% else %}
     <a href="{% url 'login' %}">Login</a>
     {% endif %}
-   
   </div>
 </nav>
