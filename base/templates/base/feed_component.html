@@ -19,10 +19,11 @@
       </button>
     </div>
     {% endif %}
-    <div class="host-name">
-      <a href="{% url 'user-profile' room.host.id %}"
-        >Created by <img style="width: 50px; height: 50px; border-radius: 50%;object-fit: cover; margin-top: 20px;" src={{room.host.avatar.url}} />
+    <div class="host-name" style="display: flex; justify-content: left; align-items: center;">
+      <a style="margin: 0.4rem; text-decoration: underline; " href="{% url 'user-profile' room.host.id %}"
+        >Created by 
       </a>
+      <img style="width: 40px; height: 40px; border-radius: 50%;object-fit: cover; " src={{room.host.avatar.url}} />
     </div>
   </div>
   {% endfor %}
