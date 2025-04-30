@@ -21,7 +21,7 @@
     {% endif %}
     <div class="host-name">
       <a href="{% url 'user-profile' room.host.id %}"
-        >Created by @{{room.host.username}}
+        >Created by <img style="width: 50px; height: 50px; border-radius: 50%;object-fit: cover; margin-top: 20px;" src={{room.host.avatar.url}} />
       </a>
     </div>
   </div>
