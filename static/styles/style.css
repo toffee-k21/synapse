@@ -186,6 +186,12 @@ ul {
    width: 100%;
     display: flex;
     justify-content: flex-end;
+    color: red;
+}
+
+.create-room:hover{
+background-color: red;
+color: white;
 }
 
 /* room css starts from here */
