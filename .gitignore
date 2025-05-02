@@ -1,0 +1,56 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django specific
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+
+# Local settings
+.env
+.env.*
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# VS Code and other editors
+.vscode/
+.idea/
+*.swp
+
+# Migrations (optional: keep if you want to version them)
+**/migrations/__pycache__/
+**/migrations/*.pyc
+**/migrations/*.pyo
+**/migrations/*.pyd
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# MyPy, Pyright, Pylint
+.mypy_cache/
+.pyright/
+.pylint.d/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
