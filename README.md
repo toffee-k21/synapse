@@ -15,48 +15,127 @@ Whether you're a developer looking to dive into Django, or someone passionate ab
 
 ---
 
-## 🛠️ Getting Started
+# Step-by-Step Guide to Set Up the Synapse Project Locally
 
-Follow the steps below to set up Synapse locally on your machine:
+Based on the command history, here's a comprehensive guide to setting up the Synapse Django project on your local machine:
+
+## Prerequisites
+- Python 3.x installed
+- Git installed
+- PowerShell (or terminal of your choice)
+
+## Setup Steps
 
 ### 1. Clone the Repository
-
-```bash
-git clone https://github.com/<your-username>/synapse.git
+```powershell
+git clone https://github.com/<username>/synapse.git
 cd synapse
 ```
 
-### 2. Set Up Virtual Environment
-Make sure you have Python 3.7+ installed.
-
-```bash
+### 2. Create and Activate Virtual Environment
+```powershell
 python -m venv env
-cd synapse
 ```
 
-Activate the virtual environment:
+For PowerShell (you may need to set execution policy first):
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+.\env\Scripts\Activate.ps1
+```
 
-On Windows:
-```bash
+For Command Prompt:
+```cmd
 .\env\Scripts\activate
 ```
 
-On Linux/Mac:
-```bash
-source env/bin/activate
+### 3. Install Required Dependencies
+```powershell
+pip install django
+pip install djangorestframework
+pip install django-cors-headers
+pip install Pillow
 ```
 
-### 3. Install Dependencies
-Make sure you have a requirements.txt file (if not, create one using pip freeze > requirements.txt after installing required packages).
-```bash
-python -m pip install -r requirements.txt
+### 4. Set Up the Database
+```powershell
+python manage.py migrate
 ```
 
-### 4. Run the Development Server
-```bash
+### 5. Create a Superuser (Optional)
+```powershell
+python manage.py createsuperuser
+```
+
+### 6. Run the Development Server
+```powershell
 python manage.py runserver
 ```
-Your app will be live at: http://127.0.0.1:8000/
+
+### 7. Access the Application
+Open your browser and go to:
+```
+http://127.0.0.1:8000/
+```
+
+## Troubleshooting Common Issues
+
+1. **Virtual Environment Activation Fails**:
+   - Make sure you're in the correct directory
+   - Check if the `env` folder exists
+   - Try the full path: `.\synapse\env\Scripts\Activate.ps1`
+
+2. **Missing Dependencies**:
+   - If you get errors about missing modules, install them with pip:
+     ```powershell
+     pip install module-name
+     ```
+
+3. **Database Issues**:
+   - If models have changed, run:
+     ```powershell
+     python manage.py makemigrations
+     python manage.py migrate
+     ```
+
+4. **Static Files Not Loading**:
+   - Collect static files:
+     ```powershell
+     python manage.py collectstatic
+     ```
+
+## Project Structure Overview
+
+Key directories and files:
+- `Synapse/` - Main project settings
+- `base/` - App containing core functionality
+- `templates/` - HTML templates
+- `manage.py` - Django management script
+
+## Development Workflow
+
+1. Make changes to the code
+2. Test locally with `python manage.py runserver`
+3. Stage changes:
+   ```powershell
+   git add .
+   ```
+4. Commit changes:
+   ```powershell
+   git commit -m "Your commit message"
+   ```
+5. Push to GitHub:
+   ```powershell
+   git push origin main
+   ```
+
+## Additional Notes
+
+- The project uses Django REST Framework for APIs
+- CORS headers are configured for cross-origin requests
+- Pillow is required for image handling (avatars)
+- The virtual environment keeps project dependencies isolated
+
+Remember to always activate your virtual environment before working on the project and to install any new dependencies within the activated environment.
 
 ## 🧩 Contributing
 We love contributions! 💖 Whether it's a bug fix, a new feature, or even fixing a typo — every bit helps.
