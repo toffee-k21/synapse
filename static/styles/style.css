@@ -186,6 +186,11 @@ ul {
    width: 100%;
     display: flex;
     justify-content: flex-end;
+    a:hover {
+        background-color: grey;
+        font-size: 18px;
+        color: black;
+      }
 }
 
 /* room css starts from here */
@@ -257,6 +262,7 @@ header {
     margin-top: 5px;
     /* Space above message body */
     color: #ffffff;
+    padding: 200px;
     /* White text for message body */
 }
 
