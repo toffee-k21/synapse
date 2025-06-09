@@ -12,6 +12,14 @@ a {
     color: white;
 }
 
+.Login_button {
+    background-color: red;
+}
+
+.Login_button:active {
+    transform: scale(0.9)
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
