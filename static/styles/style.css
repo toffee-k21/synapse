@@ -13,11 +13,11 @@ a {
 }
 
 .Login_button {
-    background-color: red;
+    background-color: red !important;
 }
 
 .Login_button:active {
-    transform: scale(0.9)
+    transform: scale(0.9) !important;
 }
 
 .navbar {
