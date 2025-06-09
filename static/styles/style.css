@@ -12,7 +12,7 @@ a {
     color: white;
 }
 
-.Login_button {
+a.Login_button {
     background-color: red;
     color: white;
     padding: 10px 20px;
@@ -22,11 +22,11 @@ a {
     transition: background-color 0.1s ease;
 }
 
-.Login_button:active {
+a.Login_button:active {
     transform: scale(0.9);
 }
 
-.Login_button:hover {
+a.Login_button:hover {
     background-color: darkred;
 }
 
